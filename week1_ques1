@@ -1,1 +1,17 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+int main() {
+   int x=fork();
+   if(x==0) {
+       printf("child is created and id is %d\n",getpid());
+   }
+   else if( x < 0) {
+       printf("child is not created");
+   }
+   else {
+       sleep(1);
+       printf("parent is created\n");
+   }
+   return 0;
+}
