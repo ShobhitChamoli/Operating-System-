@@ -1,17 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
+
 int main() {
-   int x=fork();
-   if(x==0) {
-       printf("child is created and id is %d\n",getpid());
-   }
-   else if( x < 0) {
-       printf("child is not created");
-   }
-   else {
-       sleep(1);
-       printf("parent is created\n");
-   }
-   return 0;
+    pid_t pid=fork();
+    printf("Parent Process ID: %d\n",getppid());
+    printf("Child Process ID: %d\n",getpid());
+    return 0;
 }
